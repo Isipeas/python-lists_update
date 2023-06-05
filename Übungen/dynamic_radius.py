@@ -10,14 +10,22 @@ BALL_RADIUS_INCREMENT = 3
 # Handler für Keydown-Event
 def keydown(key):
     global ball_radius
-    
-    # Füge hier Code hinzu, um den Ballradius zu verändern
-    
+
+def key_handler(key):
+    print (key)
+    if simplegui.KEY_MAP['up'] == key:
+        print("Du hast Up geklickt !")
+        BALL_RADIUS_INCREMENT= +1
+
+    if simplegui.KEY_MAP['up'] == key:
+        print("B geklickt du hast")
+        BALL_RADIUS_INCREMENT= -1
+
 
 # Handler zum Zeichen auf der Canvas
 def draw(canvas):
     # Hinweis: Falls der Radius negativ wird, wird das Programm sich mit einem Fehler beenden
-    canvas.draw_circle([WIDTH / 2, HEIGHT / 2], ball_radius, 1, "White", "White")
+    canvas.draw_circle([WIDTH / 2, HEIGHT / 2], ball_radius, 1, "Red", "Red")
 
 # Erzeuge ein Frame und registriere die Handler
 frame = simplegui.create_frame("Dynamic Radius", 300, 200)
@@ -26,7 +34,3 @@ frame.set_draw_handler(draw)
 
 # Starte die Frame-Animation
 frame.start()
-
-
-
-
